@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-dev
+spec:
+  destination:
+    name: dev-cluster
+    namespace: nginx
+  project: default
+  source:
+    repoURL: https://github.com/ASH0410/gitops-nginx
+    path: helm-charts/nginx
+    targetRevision: main
+    helm:
+      valueFiles:
+        - values/dev.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
