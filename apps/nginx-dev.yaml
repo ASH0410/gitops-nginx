@@ -4,8 +4,8 @@ metadata:
   name: nginx-dev
 spec:
   destination:
-    name: dev-cluster
-    namespace: nginx
+    name: dev
+    namespace: argocd
   project: default
   source:
     repoURL: https://github.com/ASH0410/gitops-nginx
