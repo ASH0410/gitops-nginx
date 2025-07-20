@@ -4,8 +4,8 @@ metadata:
   name: nginx-prod
 spec:
   destination:
-    name: prod-cluster
-    namespace: nginx
+    name: dev
+    namespace: argocd
   project: default
   source:
     repoURL: https://github.com/ASH0410/gitops-nginx
@@ -14,7 +14,4 @@ spec:
     helm:
       valueFiles:
         - values/prod.yaml
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  syncPolicy: {}
